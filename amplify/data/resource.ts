@@ -35,8 +35,4 @@ export const data = defineData({
       expiresInDays: 30,
     },
   },
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> ab45c4ee9a1038a2be0aad4f2c3434bba10ff237
