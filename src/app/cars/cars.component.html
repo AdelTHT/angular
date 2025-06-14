@@ -1,6 +1,12 @@
 <main>
     <h1>Cars</h1>
-    <button (click)="addCar()">+ Add Car</button>
+    <form (submit)="addCar()">
+        <input type="text" placeholder="Brand" [(ngModel)]="newCar.brand" required />
+        <input type="text" placeholder="Model" [(ngModel)]="newCar.model" required />
+        <input type="number" placeholder="Year" [(ngModel)]="newCar.year" required />
+        <input type="number" placeholder="Price per day" [(ngModel)]="newCar.pricePerDay" required />
+        <button type="submit">+ Add Car</button>
+    </form>
     <ul>
         <li *ngFor="let car of cars">
             <strong>{{ car.brand }} {{ car.model }}</strong> - {{ car.year }} - ${{ car.pricePerDay }}/day

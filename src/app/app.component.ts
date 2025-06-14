@@ -10,5 +10,5 @@ import { CarsComponent } from './cars/cars.component'; // Importez CarsComponent
   imports: [RouterOutlet, CarsComponent], // Ajoutez CarsComponent ici
 })
 export class AppComponent {
-  title = 'amplify-angular-template';
+  title = 'CARS';
 }

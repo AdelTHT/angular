@@ -1,23 +1,29 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cars',
   standalone: true,
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
 })
 export class CarsComponent {
   cars: any[] = [];
+  newCar = {
+    brand: '',
+    model: '',
+    year: null,
+    pricePerDay: null,
+  };
 
   addCar() {
-    console.log('Add Car button clicked');
-    this.cars.push({
-      brand: 'New Brand',
-      model: 'New Model',
-      year: 2025,
-      pricePerDay: 100,
-    });
+    if (this.newCar.brand && this.newCar.model && this.newCar.year && this.newCar.pricePerDay) {
+      this.cars.push({ ...this.newCar });
+      this.newCar = { brand: '', model: '', year: null, pricePerDay: null }; // Réinitialise le formulaire
+    } else {
+      console.error('All fields are required');
+    }
   }
 }
