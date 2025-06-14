@@ -1,13 +1,12 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 
-// filepath: c:\Users\PC\Desktop\DevOps\amplify\amp\angular\amplify\data\resource.ts
 const schema = a.schema({
   Car: a
     .model({
       brand: a.string(),
       model: a.string(),
-      year: a.float(),
-      pricePerDay: a.float(),
+      year: a.float(), // Remplacez float par int si nécessaire
+      pricePerDay: a.float(), // Remplacez float par int si nécessaire
     })
     .authorization((allow) => [allow.publicApiKey()]),
   Rental: a
@@ -24,4 +23,16 @@ const schema = a.schema({
       email: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
+});
+
+export type Schema = ClientSchema<typeof schema>;
+
+export const data = defineData({
+  schema,
+  authorizationModes: {
+    defaultAuthorizationMode: 'apiKey',
+    apiKeyAuthorizationMode: {
+      expiresInDays: 30,
+    },
+  },
 });
