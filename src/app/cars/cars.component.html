@@ -1,0 +1,8 @@
+<div class="cars-container">
+    <h1>Cars</h1>
+    <ul>
+      <li *ngFor="let car of cars">
+        <strong>{{ car.brand }} {{ car.model }}</strong> - {{ car.year }} - ${{ car.pricePerDay }}/day
+      </li>
+    </ul>
+  </div>
