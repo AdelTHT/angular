@@ -1,34 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import Amplify from 'aws-amplify'; // Importez Amplify explicitement
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { CarsComponent } from './cars/cars.component'; // Importez CarsComponent
 
 @Component({
-  selector: 'app-cars',
-  templateUrl: './cars/cars.component.html',
-  styleUrls: ['./cars/cars.component.css'],
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  imports: [RouterOutlet, CarsComponent], // Ajoutez CarsComponent ici
 })
-export class CarsComponent implements OnInit {
-  cars: any[] = [];
-
-  async ngOnInit() {
-    try {
-      const carsData: any = await Amplify.API.graphql({
-        query: `
-          query ListCars {
-            listCars {
-              items {
-                id
-                brand
-                model
-                year
-                pricePerDay
-              }
-            }
-          }
-        `,
-      });
-      this.cars = carsData.data.listCars.items;
-    } catch (error) {
-      console.error('Error fetching cars:', error);
-    }
-  }
+export class AppComponent {
+  title = 'amplify-angular-template';
 }

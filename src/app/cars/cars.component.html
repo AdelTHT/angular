@@ -1,8 +1,16 @@
-<div class="cars-container">
+<main>
     <h1>Cars</h1>
+    <button (click)="addCar()">+ Add Car</button>
     <ul>
-      <li *ngFor="let car of cars">
-        <strong>{{ car.brand }} {{ car.model }}</strong> - {{ car.year }} - ${{ car.pricePerDay }}/day
-      </li>
+        <li *ngFor="let car of cars">
+            <strong>{{ car.brand }} {{ car.model }}</strong> - {{ car.year }} - ${{ car.pricePerDay }}/day
+        </li>
     </ul>
-  </div>
+    <div>
+        🚗 Manage your cars easily. Try adding a new car.
+        <br />
+        <a href="https://docs.amplify.aws/gen2/start/quickstart/">
+            Review next steps of this tutorial.
+        </a>
+    </div>
+</main>
