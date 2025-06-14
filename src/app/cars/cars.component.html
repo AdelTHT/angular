@@ -8,8 +8,11 @@
         <button type="submit">+ Add Car</button>
     </form>
     <ul>
-        <li *ngFor="let car of cars">
-            <strong>{{ car.brand }} {{ car.model }}</strong> - {{ car.year }} - ${{ car.pricePerDay }}/day
+        <li *ngFor="let car of cars" class="car-item">
+            <img src="/assets/car-icon.jpg" alt="Car Icon" class="car-icon" />
+            <div>
+                <strong>{{ car.brand }} {{ car.model }}</strong> - {{ car.year }} - ${{ car.pricePerDay }}/day
+            </div>
         </li>
     </ul>
     <div>
