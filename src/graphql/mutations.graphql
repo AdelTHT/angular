@@ -1,0 +1,100 @@
+# this is an auto generated file. This will be overwritten
+
+mutation CreateCar(
+  $input: CreateCarInput!
+  $condition: ModelCarConditionInput
+) {
+  createCar(input: $input, condition: $condition) {
+    id
+    brand
+    model
+    year
+    pricePerDay
+    isRented
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateCar(
+  $input: UpdateCarInput!
+  $condition: ModelCarConditionInput
+) {
+  updateCar(input: $input, condition: $condition) {
+    id
+    brand
+    model
+    year
+    pricePerDay
+    isRented
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteCar(
+  $input: DeleteCarInput!
+  $condition: ModelCarConditionInput
+) {
+  deleteCar(input: $input, condition: $condition) {
+    id
+    brand
+    model
+    year
+    pricePerDay
+    isRented
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation CreateRental(
+  $input: CreateRentalInput!
+  $condition: ModelRentalConditionInput
+) {
+  createRental(input: $input, condition: $condition) {
+    id
+    carId
+    userId
+    startDate
+    endDate
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateRental(
+  $input: UpdateRentalInput!
+  $condition: ModelRentalConditionInput
+) {
+  updateRental(input: $input, condition: $condition) {
+    id
+    carId
+    userId
+    startDate
+    endDate
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteRental(
+  $input: DeleteRentalInput!
+  $condition: ModelRentalConditionInput
+) {
+  deleteRental(input: $input, condition: $condition) {
+    id
+    carId
+    userId
+    startDate
+    endDate
+    createdAt
+    updatedAt
+    __typename
+  }
+}

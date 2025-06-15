@@ -1,0 +1,16 @@
+type Car @model @auth(rules: [{ allow: public, operations: [read] }, { allow: private, operations: [create, update, delete] }]) {
+  id: ID!
+  brand: String!
+  model: String!
+  year: Int!
+  pricePerDay: Float!
+  isRented: Boolean!
+}
+
+type Rental @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  carId: ID!
+  userId: ID!
+  startDate: AWSDate!
+  endDate: AWSDate!
+}

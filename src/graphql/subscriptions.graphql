@@ -1,0 +1,82 @@
+# this is an auto generated file. This will be overwritten
+
+subscription OnCreateRental($filter: ModelSubscriptionRentalFilterInput) {
+  onCreateRental(filter: $filter) {
+    id
+    carId
+    userId
+    startDate
+    endDate
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateRental($filter: ModelSubscriptionRentalFilterInput) {
+  onUpdateRental(filter: $filter) {
+    id
+    carId
+    userId
+    startDate
+    endDate
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteRental($filter: ModelSubscriptionRentalFilterInput) {
+  onDeleteRental(filter: $filter) {
+    id
+    carId
+    userId
+    startDate
+    endDate
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnCreateCar($filter: ModelSubscriptionCarFilterInput) {
+  onCreateCar(filter: $filter) {
+    id
+    brand
+    model
+    year
+    pricePerDay
+    isRented
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateCar($filter: ModelSubscriptionCarFilterInput) {
+  onUpdateCar(filter: $filter) {
+    id
+    brand
+    model
+    year
+    pricePerDay
+    isRented
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteCar($filter: ModelSubscriptionCarFilterInput) {
+  onDeleteCar(filter: $filter) {
+    id
+    brand
+    model
+    year
+    pricePerDay
+    isRented
+    createdAt
+    updatedAt
+    __typename
+  }
+}
