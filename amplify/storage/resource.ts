@@ -5,7 +5,7 @@ export const storage = defineStorage({
   access: (allow) => ({
     'car-images/{entity_id}/*': [
       allow.authenticated.to(['read', 'write', 'delete']),
-      allow.guest.to(['read']) // optionnel, retire si tu veux restreindre aux connectés
+      allow.guest.to(['read']) 
     ]
   })
 });

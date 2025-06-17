@@ -50,12 +50,11 @@ export class CarsComponent implements OnInit {
         reservationStart: start,
         reservationEnd: end
       });
-      car.isRented = true;
-      car.reservationStart = start;
-      car.reservationEnd = end;
-    } catch (err) {
-      alert('Erreur lors de la réservation');
-    }
+      await this.ngOnInit();
+      }   
+      catch (err) {
+    alert('Erreur lors de la réservation');
+  }
   }
 
   async uploadCarImage(carId: string, file: File) {
@@ -65,7 +64,7 @@ export class CarsComponent implements OnInit {
       id: carId,
       imageKey: path
     });
-    // Recharge l'URL de l'image après upload
+  
     const car = this.cars.find(c => c.id === carId);
     if (car) {
       car.imageKey = path;
