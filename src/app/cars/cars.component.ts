@@ -43,19 +43,21 @@ export class CarsComponent implements OnInit {
   }
 
   async reserveCar(car: Schema['Car']['type'], start: string, end: string) {
-    try {
-      await client.models.Car.update({
-        id: car.id,
-        isRented: true,
-        reservationStart: start,
-        reservationEnd: end
-      });
-      await this.ngOnInit();
-      }   
-      catch (err) {
+  try {
+    const result = await client.models.Car.update({
+      id: car.id,
+      isRented: true,
+      reservationStart: start,
+      reservationEnd: end
+    });
+    console.log('Update result:', result);
+    // Recharge la liste pour refléter l'état à jour
+    await this.ngOnInit();
+  } catch (err) {
+    console.error('Erreur lors de la réservation', err);
     alert('Erreur lors de la réservation');
   }
-  }
+}
 
   async uploadCarImage(carId: string, file: File) {
     const path = `car-images/${carId}/${file.name}`;
