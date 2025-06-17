@@ -1,8 +1,5 @@
-
 <main>
-
   <div class="cars-container">
-
     <table>
       <thead>
         <tr>
@@ -15,7 +12,13 @@
       </thead>
       <tbody>
         <tr *ngFor="let car of cars">
-          <td><strong>{{ car.brand }} {{ car.model }}</strong></td>
+          <td>
+            <strong>{{ car.brand }} {{ car.model }}</strong>
+            <div *ngIf="car.imageUrl" style="margin-top: 5px;">
+              <img [src]="car.imageUrl" alt="Image voiture" width="80" />
+            </div>
+            <input type="file" (change)="onFileSelected($event, car)" *ngIf="!car.isRented" />
+          </td>
           <td>{{ car.pricePerDay }} €</td>
           <td>
             <input type="date" [(ngModel)]="dateInputs[car.id].startDate" [disabled]="!!car.isRented" />

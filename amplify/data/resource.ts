@@ -7,7 +7,8 @@ const schema = a.schema({
     isRented: a.boolean(),
     pricePerDay: a.float(),
     reservationStart: a.datetime(), 
-    reservationEnd: a.datetime()
+    reservationEnd: a.datetime(),
+     imageKey: a.string()
   })
   .authorization(allow => [allow.authenticated()]) 
 });
