@@ -73,7 +73,7 @@ export class RegisterComponent {
       this.confirmError = '';
       setTimeout(() => {
         this.router.navigate(['/login']);
-      }, 2000); // 2 secondes avant redirection
+      }, 2000); 
     } catch (error: any) {
       console.error(error);
       this.confirmError = error.message || 'Erreur';

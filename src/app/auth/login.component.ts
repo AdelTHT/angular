@@ -20,7 +20,7 @@ import { AuthStateService } from '../services/auth-state.service'; // adapte le 
       <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
       <p>
         Pas encore de compte ?
-        <a routerLink="/register">Créer un compte</a>
+        <a routerLink="/register"><strong>Créer un compte</strong></a>
       </p>
     </div>
   `
@@ -32,12 +32,12 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private authState: AuthStateService // 👈 injection ici
+    private authState: AuthStateService 
   ) {}
 
   async handleSignIn() {
     try {
-      await signOut(); // pour forcer une session propre
+      await signOut(); 
       const user = await signIn({
         username: this.username,
         password: this.password,
@@ -45,7 +45,7 @@ export class LoginComponent {
 
       console.log('Connecté avec succès :', user);
       this.errorMessage = '';
-      this.authState.setSignedIn(true); // ✅ met à jour l'état
+      this.authState.setSignedIn(true); 
       this.router.navigate(['/cars']);
     } catch (error: any) {
       console.error('Erreur de connexion :', error);

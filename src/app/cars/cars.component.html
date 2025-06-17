@@ -1,25 +1,13 @@
 <main>
     <h1>Cars</h1>
-    <form (submit)="addCar()">
-        <input type="text" placeholder="Brand" [(ngModel)]="newCar.brand" required />
-        <input type="text" placeholder="Model" [(ngModel)]="newCar.model" required />
-        <input type="number" placeholder="Year" [(ngModel)]="newCar.year" required />
-        <input type="number" placeholder="Price per day" [(ngModel)]="newCar.pricePerDay" required />
-        <button type="submit">+ Add Car</button>
-    </form>
+    <div *ngIf="loading">Chargement...</div>
+    <div *ngIf="error" style="color:red">{{ error }}</div>
     <ul>
-        <li *ngFor="let car of cars" class="car-item">
-            <img src="/assets/car-icon.jpg" alt="Car Icon" class="car-icon" />
-            <div>
-                <strong>{{ car.brand }} {{ car.model }}</strong> - {{ car.year }} - ${{ car.pricePerDay }}/day
-            </div>
+        <li *ngFor="let car of cars">
+            <strong>{{ car.brand }} {{ car.model }}</strong>
+            <span>- {{ car.pricePerDay }} €/jour</span>
+            <span *ngIf="car.isRented" style="color: red; margin-left: 1em;">Déjà louée</span>
+            <button *ngIf="!car.isRented" (click)="reserveCar(car)">Réserver</button>
         </li>
     </ul>
-    <div>
-        🚗 Manage your cars easily. Try adding a new car.
-        <br />
-        <a href="https://docs.amplify.aws/gen2/start/quickstart/">
-            Review next steps of this tutorial.
-        </a>
-    </div>
 </main>
