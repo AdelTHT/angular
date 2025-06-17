@@ -1,13 +1,37 @@
+
 <main>
-    <h1>Cars</h1>
-    <div *ngIf="loading">Chargement...</div>
-    <div *ngIf="error" style="color:red">{{ error }}</div>
-    <ul>
-        <li *ngFor="let car of cars">
-            <strong>{{ car.brand }} {{ car.model }}</strong>
-            <span>- {{ car.pricePerDay }} €/jour</span>
-            <span *ngIf="car.isRented" style="color: red; margin-left: 1em;">Déjà louée</span>
-            <button *ngIf="!car.isRented" (click)="reserveCar(car)">Réserver</button>
-        </li>
-    </ul>
+
+  <div class="cars-container">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Voiture</th>
+          <th>Prix/jour</th>
+          <th>Début</th>
+          <th>Fin</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td><strong>{{ car.brand }} {{ car.model }}</strong></td>
+          <td>{{ car.pricePerDay }} €</td>
+          <td>
+            <input type="date" [(ngModel)]="dateInputs[car.id].startDate" [disabled]="!!car.isRented" />
+          </td>
+          <td>
+            <input type="date" [(ngModel)]="dateInputs[car.id].endDate" [disabled]="!!car.isRented" />
+          </td>
+          <td>
+            <span *ngIf="car.isRented" style="color: red;">Déjà louée</span>
+            <button *ngIf="!car.isRented"
+              (click)="reserveCar(car, dateInputs[car.id].startDate || '', dateInputs[car.id].endDate || '')">
+              Réserver
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </main>

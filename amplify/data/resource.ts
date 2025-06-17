@@ -5,9 +5,11 @@ const schema = a.schema({
     brand: a.string(),
     model: a.string(),
     isRented: a.boolean(),
-    pricePerDay: a.float()
+    pricePerDay: a.float(),
+    reservationStart: a.datetime(), 
+    reservationEnd: a.datetime()
   })
-  .authorization(allow => [allow.authenticated()]) // ou adapte selon tes besoins
+  .authorization(allow => [allow.authenticated()]) 
 });
 
 export type Schema = ClientSchema<typeof schema>;
