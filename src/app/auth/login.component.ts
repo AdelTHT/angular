@@ -3,12 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { signIn, signOut } from 'aws-amplify/auth';
 import { Router } from '@angular/router';
-import { AuthStateService } from '../services/auth-state.service'; // adapte le chemin si besoin
-
+import { AuthStateService } from '../services/auth-state.service'; 
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   template: `
     <div style="max-width: 300px; margin: auto;">
       <h2>Connexion</h2>
@@ -19,9 +19,9 @@ import { AuthStateService } from '../services/auth-state.service'; // adapte le 
       </form>
       <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
       <p>
-        Pas encore de compte ?
-        <a routerLink="/register"><strong>Créer un compte</strong></a>
-      </p>
+        Pas encore de compte ?</p>
+        <a routerLink="/register">Créer un compte</a>
+      
     </div>
   `
 })
