@@ -44,14 +44,17 @@ export class CarsComponent implements OnInit {
 
   async reserveCar(car: Schema['Car']['type'], start: string, end: string) {
   try {
+    // Conversion en ISO string si ce n'est pas déjà le cas
+    const startIso = start ? new Date(start).toISOString() : null;
+    const endIso = end ? new Date(end).toISOString() : null;
+
     const result = await client.models.Car.update({
       id: car.id,
       isRented: true,
-      reservationStart: start,
-      reservationEnd: end
+      reservationStart: startIso,
+      reservationEnd: endIso
     });
     console.log('Update result:', result);
-    // Recharge la liste pour refléter l'état à jour
     await this.ngOnInit();
   } catch (err) {
     console.error('Erreur lors de la réservation', err);
