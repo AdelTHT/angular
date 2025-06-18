@@ -1,6 +1,6 @@
 <header style="text-align: right; padding: 1rem;">
   <ng-container *ngIf="sessionChecked">
-    <div *ngIf="authState.getSignedIn(); else notConnected">
+    <div *ngIf="authState.getSignedIn()(); else notConnected">
       ✅ Connecté |
       <button (click)="logout()">Se déconnecter</button>
     </div>
